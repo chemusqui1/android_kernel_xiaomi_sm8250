@@ -20,6 +20,8 @@
 #endif
 #include <linux/power_supply.h>
 
+#include <linux/power_supply.h>
+
 #ifdef CONFIG_USB_CONFIGFS_F_ACC
 extern int acc_ctrlrequest(struct usb_composite_dev *cdev,
 				const struct usb_ctrlrequest *ctrl);
