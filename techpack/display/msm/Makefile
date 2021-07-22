@@ -121,3 +121,5 @@ msm_drm-$(CONFIG_DRM_MSM) += \
 obj-$(CONFIG_DRM_MSM)	+= msm_drm.o
 
 obj-$(CONFIG_DRM_FBDEV_EMULATION) += msm_fbdev.o
+
+msm_drm-$(CONFIG_EXPOSURE_ADJUSTMENT) += dsi/exposure_adjustment.o
