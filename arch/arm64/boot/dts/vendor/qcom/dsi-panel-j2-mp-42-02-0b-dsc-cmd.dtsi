@@ -393,6 +393,42 @@
 
 	qcom,mdss-dsi-display-timings {
 		timing@0{
+			qcom,mdss-dsi-doze-hbm-command = [
+				/* VI Setting voltage -3.5V */
+				39 01 00 00 11 00 06 F0 55 AA 52 08 01 /* Set page 1 */
+				39 01 00 00 00 00 06 F0 55 AA 52 08 01 /* Set page 1 */
+				39 00 00 00 00 00 09 B9 1F 1F 1F 1F 1F 1F 1F 1F
+				/* Set page 0 */
+				39 00 00 00 00 00 06 F0 55 AA 52 08 00
+				/* DPC_LUM(dynamic power control Luminance) dynamic elvss off */
+				15 00 00 00 00 00 02 B5 80
+				/* AOD Mode On */
+				15 00 00 00 00 00 02 B2 48
+				15 00 00 00 00 00 02 6F 09
+				15 00 00 00 00 00 02 B2 20 /* 4 pulse */
+				15 00 00 00 00 00 02 6F 02
+				39 00 00 00 00 00 03 51 0F FF /* 60 nit*/
+				05 00 00 00 00 00 02 39 00
+				15 00 00 00 00 00 02 65 01
+				05 01 00 00 00 00 02 2C 00];
+			qcom,mdss-dsi-doze-lbm-command = [
+				/* VI Setting voltage -3.5V */
+				39 01 00 00 11 00 06 F0 55 AA 52 08 01 /* Set page 1 */
+				39 01 00 00 00 00 06 F0 55 AA 52 08 01 /* Set page 1 */
+				39 00 00 00 00 00 09 B9 1F 1F 1F 1F 1F 1F 1F 1F
+				/* Set page 0 */
+				39 00 00 00 00 00 06 F0 55 AA 52 08 00
+				/* DPC_LUM(dynamic power control Luminance) dynamic elvss off */
+				15 00 00 00 00 00 02 B5 80
+				/* AOD Mode On */
+				15 00 00 00 00 00 02 B2 48
+				15 00 00 00 00 00 02 6F 09
+				15 00 00 00 00 00 02 B2 20 /* 4 pulse */
+				15 00 00 00 00 00 02 6F 02
+				39 00 00 00 00 00 03 51 02 D0 /* 5 nit */
+				05 00 00 00 00 00 02 39 00
+				15 00 00 00 00 00 02 65 01
+				05 01 00 00 00 00 02 2C 00];
 			mi,mdss-dsi-doze-hbm-command = [
 				/* VI Setting voltage -3.5V */
 				39 01 00 00 11 00 06 F0 55 AA 52 08 01 /* Set page 1 */
@@ -429,6 +465,8 @@
 				05 00 00 00 00 00 02 39 00
 				15 00 00 00 00 00 02 65 01
 				05 01 00 00 00 00 02 2C 00];
+			qcom,mdss-dsi-doze-hbm-command-state = "dsi_lp_mode";
+			qcom,mdss-dsi-doze-lbm-command-state = "dsi_lp_mode";
 			mi,mdss-dsi-doze-hbm-command-state = "dsi_lp_mode";
 			mi,mdss-dsi-doze-lbm-command-state = "dsi_lp_mode";
 
@@ -579,6 +617,54 @@
 			mi,mdss-dsi-dynamic-elvss-off-command-state = "dsi_lp_mode";
 		};
 		timing@1{
+			qcom,mdss-dsi-doze-hbm-command = [
+				/* Enter 60Hz */
+				39 01 00 00 11 00 06 F0 55 AA 52 08 00 /* Set page 0 */
+				39 01 00 00 00 00 06 F0 55 AA 52 08 00 /* Set page 0 */
+				39 00 00 00 00 00 1E B4 CB BB BB AA 99 77 66 00 00 00 B4 D0 D0 D0 D0 D0 86 86 3C 3C F2 F2 A8 A8 36 36 36 36 0A
+				15 00 00 00 00 00 02 2F 01
+				15 00 00 00 00 00 02 26 01
+				/* VI Setting voltage -3.5V */
+				39 00 00 00 00 00 06 F0 55 AA 52 08 01 /* Set page 1 */
+				39 00 00 00 00 00 09 B9 1F 1F 1F 1F 1F 1F 1F 1F
+				/* Set page 0 */
+				39 00 00 00 00 00 06 F0 55 AA 52 08 00
+				/* DPC_LUM(dynamic power control Luminance) dynamic elvss off */
+				15 00 00 00 00 00 02 B5 80
+				/* AOD Mode On */
+				15 00 00 00 00 00 02 B2 48
+				15 00 00 00 00 00 02 6F 09
+				15 00 00 00 00 00 02 B2 20 /* 4 pulse */
+				/* 60 nit */
+				15 00 00 00 00 00 02 6F 02
+				39 00 00 00 00 00 03 51 0F FF
+				05 00 00 00 00 00 02 39 00
+				15 00 00 00 00 00 02 65 01
+				05 01 00 00 00 00 02 2C 00];
+			qcom,mdss-dsi-doze-lbm-command = [
+				/* Enter 60Hz */
+				39 01 00 00 11 00 06 F0 55 AA 52 08 00 /* Set page 0 */
+				39 01 00 00 00 00 06 F0 55 AA 52 08 00 /* Set page 0 */
+				39 00 00 00 00 00 1E B4 CB BB BB AA 99 77 66 00 00 00 B4 D0 D0 D0 D0 D0 86 86 3C 3C F2 F2 A8 A8 36 36 36 36 0A
+				15 00 00 00 00 00 02 2F 01
+				15 00 00 00 00 00 02 26 01
+				/* VI Setting voltage -3.5V */
+				39 00 00 00 00 00 06 F0 55 AA 52 08 01 /* Set page 1 */
+				39 00 00 00 00 00 09 B9 1F 1F 1F 1F 1F 1F 1F 1F
+				/* Set page 0 */
+				39 00 00 00 00 00 06 F0 55 AA 52 08 00
+				/* DPC_LUM(dynamic power control Luminance) dynamic elvss off */
+				15 00 00 00 00 00 02 B5 80
+				/* AOD Mode On */
+				15 00 00 00 00 00 02 B2 48
+				15 00 00 00 00 00 02 6F 09
+				15 00 00 00 00 00 02 B2 20 /* 4 pulse */
+				/* 5 nit */
+				15 00 00 00 00 00 02 6F 02
+				39 00 00 00 00 00 03 51 02 D0
+				05 00 00 00 00 00 02 39 00
+				15 00 00 00 00 00 02 65 01
+				05 01 00 00 00 00 02 2C 00];
 			mi,mdss-dsi-doze-hbm-command = [
 				/* Enter 60Hz */
 				39 01 00 00 11 00 06 F0 55 AA 52 08 00 /* Set page 0 */
@@ -627,6 +713,8 @@
 				05 00 00 00 00 00 02 39 00
 				15 00 00 00 00 00 02 65 01
 				05 01 00 00 00 00 02 2C 00];
+			qcom,mdss-dsi-doze-hbm-command-state = "dsi_lp_mode";
+			qcom,mdss-dsi-doze-lbm-command-state = "dsi_lp_mode";
 			mi,mdss-dsi-doze-hbm-command-state = "dsi_lp_mode";
 			mi,mdss-dsi-doze-lbm-command-state = "dsi_lp_mode";
 
